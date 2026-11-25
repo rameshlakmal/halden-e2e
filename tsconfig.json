@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024", "DOM"],
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": [
+    "*.ts",
+    "agents/**/*.ts",
+    "fixtures/**/*.ts",
+    "pages/**/*.ts",
+    "scripts/**/*.ts",
+    "tests/**/*.ts",
+    "tools/**/*.ts",
+    "utils/**/*.ts",
+    ".claude/skills/qa/scripts/**/*.ts"
+  ],
+  "exclude": ["node_modules", ".e2e"]
+}

@@ -1,0 +1,94 @@
+name: e2e
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *' # nightly: the full suite plus the bug matrix
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+
+  e2e:
+    needs: [typecheck]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U postgres" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      HALDEN_SHOP_DIR: halden-shop
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/halden_e2e
+      SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
+      SEED_ADMIN_PASSWORD: ${{ secrets.SEED_ADMIN_PASSWORD }}
+      SEED_SHOPPER_PASSWORD: ${{ secrets.SEED_SHOPPER_PASSWORD }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check out the shop under test
+        uses: actions/checkout@v4
+        with:
+          repository: rameshlakmal/halden-outfitters
+          path: halden-shop
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm ci
+        working-directory: halden-shop
+      - name: Install Chromium
+        run: npx @e2e-dev/web install chromium --with-deps
+      - name: Create and seed the test database
+        run: npm run db:create
+
+      # Agent steps replay from the committed .e2e/cache/ without model calls; --strict-cache fails a
+      # recording that no longer replays instead of quietly paying for the model on every run.
+      - name: Run e2e
+        run: npx e2e run --reporter list,junit,markdown --strict-cache
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Bug matrix (nightly)
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+        run: npm run bug-matrix
+
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-report
+          path: |
+            .e2e/report.json
+            .e2e/junit.xml
+            .e2e/summary.md
+            .e2e/failures
+            docs/bug-matrix.md
+          if-no-files-found: warn
+      - if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-artifacts
+          path: .e2e/artifacts
+          if-no-files-found: warn
+          retention-days: 7

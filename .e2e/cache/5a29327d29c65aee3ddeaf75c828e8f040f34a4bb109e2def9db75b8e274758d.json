@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:19:23.802Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap link \"Cart, 1 item\"",
+        "target": {
+          "role": "link",
+          "name": "Cart, 1 item"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap link \"Check out\"",
+        "target": {
+          "role": "link",
+          "name": "Check out"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/checkout/checkout.shopper.e2e.ts::Checkout::Verify%20that%20a%20shopper%20can%20buy%20a%20stove%20with%20agent-driven%20steps%20and%20exact%20checks",
+      "targetId": "chromium",
+      "instructionDigest": "2fc6118efed280ec7b9cf267734ff715034b54215390f422f2934c917fcab206",
+      "paramsDigest": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Opened the cart from the header (showing Ember Stove, qty 1, Total $82.47) and clicked \"Check out\". The checkout page at /checkout shows the shipping address form, Card number field, order summary (Subtotal $69.00, Shipping $7.95, Tax $5.52, Total $82.47), and \"Pay $82.47\" button.",
+    "startPath": "/",
+    "endPath": "/checkout",
+    "endAnchors": [
+      {
+        "text": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Shipping address"
+      },
+      {
+        "text": "Full name"
+      },
+      {
+        "role": "textbox",
+        "name": "Full name",
+        "value": "Maya Okafor"
+      },
+      {
+        "text": "Address"
+      },
+      {
+        "role": "textbox",
+        "name": "Address"
+      },
+      {
+        "text": "City"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "status",
+        "name": "Added to your cart. View cart"
+      },
+      {
+        "role": "heading",
+        "name": "Gear for nights under open sky."
+      },
+      {
+        "text": "Tents, sleeping bags and camp kitchens chosen for long trips. Free shipping on orders over $75."
+      },
+      {
+        "role": "link",
+        "name": "Shop all gear"
+      },
+      {
+        "role": "link",
+        "name": "Browse shelter"
+      },
+      {
+        "role": "image",
+        "name": "A small tent pitched on a ridge at dusk"
+      },
+      {
+        "role": "heading",
+        "name": "Shop by trip"
+      },
+      {
+        "role": "link",
+        "name": "All products"
+      }
+    ],
+    "endWaitMs": 12631
+  }
+}

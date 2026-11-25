@@ -1,0 +1,29 @@
+{
+  "feature": "<feature slug>",
+  "updated": "<YYYY-MM-DD>",
+  "findings": [
+    {
+      "id": "BUG-01",
+      "severity": "critical",
+      "title": "<one line: the problem, not the fix>",
+      "description": "<1-3 sentences: what is wrong and why it matters>",
+      "area": "<screen / component>",
+      "device": "<desktop target, Chromium 1440x900>",
+      "account": "<shopper (Maya)>",
+      "preconditions": ["<session / data state>"],
+      "steps": ["Open /product?slug=ember-stove", "<step>"],
+      "expected": "<expected, with the arithmetic for money>",
+      "source": "[rule]",
+      "actual": "<actual: the exact values on screen>",
+      "fix": "<suggested fix, SHOP: file pointer if found>",
+      "evidence": [".evidence/<feature>/<run-date>/evidence/functional-tester/BUG-01-<slug>.png"],
+      "foundBy": "functional-tester",
+      "alsoSeenBy": [],
+      "firstRun": "<run-date>",
+      "status": "open",
+      "plantedBug": null,
+      "test": null,
+      "history": [{ "date": "<YYYY-MM-DD>", "event": "found", "by": "functional-tester", "note": "" }]
+    }
+  ]
+}

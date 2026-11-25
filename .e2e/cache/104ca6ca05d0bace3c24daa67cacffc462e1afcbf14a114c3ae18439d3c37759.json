@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:20:40.225Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "navigate",
+        "summary": "navigate to \"/shop\"",
+        "url": "/shop"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Add Headlamp 400 to cart\" in \"Add\"",
+        "target": {
+          "role": "button",
+          "name": "Add Headlamp 400 to cart",
+          "text": "Add",
+          "within": "Add"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Add Insulated Mug to cart\" in \"Only 4 left\"",
+        "target": {
+          "role": "button",
+          "name": "Add Insulated Mug to cart",
+          "text": "Add",
+          "within": "Only 4 left"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/journeys/first-purchase.guest.e2e.ts::First%20purchase::Verify%20that%20a%20first-time%20visitor%20can%20sign%20up%20and%20buy%20a%20headlamp%20and%20a%20mug",
+      "targetId": "chromium",
+      "instructionDigest": "56791ed1f60a64d0320386114549f73191bcee43dd9d6e3038b637e1f16962e0",
+      "paramsDigest": "abe692831e50622532e568deab752f77b2e35ed8e68bee20334157085585e90d",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Added Headlamp 400 and Insulated Mug from the /shop page using their quick Add buttons. Both buttons changed to \"Added\" (disabled), and the header cart now reads \"Cart, 2 items\".",
+    "startPath": "/",
+    "endPath": "/shop",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "Added to your cart. View cart Added to your cart. View cart"
+      },
+      {
+        "role": "link",
+        "name": "Home"
+      },
+      {
+        "text": "Shop"
+      },
+      {
+        "role": "heading",
+        "name": "Shop all gear"
+      },
+      {
+        "text": "Everything we carry, tested on long trips."
+      },
+      {
+        "role": "button",
+        "name": "All",
+        "states": [
+          "pressed"
+        ]
+      },
+      {
+        "role": "button",
+        "name": "Shelter"
+      },
+      {
+        "role": "button",
+        "name": "Sleep"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "link",
+        "name": "Cart, empty"
+      },
+      {
+        "role": "heading",
+        "name": "Gear for nights under open sky."
+      },
+      {
+        "text": "Tents, sleeping bags and camp kitchens chosen for long trips. Free shipping on orders over $75."
+      },
+      {
+        "role": "link",
+        "name": "Shop all gear"
+      },
+      {
+        "role": "link",
+        "name": "Browse shelter"
+      },
+      {
+        "role": "image",
+        "name": "A small tent pitched on a ridge at dusk"
+      },
+      {
+        "role": "heading",
+        "name": "Shop by trip"
+      },
+      {
+        "role": "link",
+        "name": "All products"
+      }
+    ],
+    "endWaitMs": 13478
+  }
+}

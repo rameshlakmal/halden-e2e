@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "name": "cart-empty", "path": "/cart", "accounts": ["guest"], "waitFor": "Order summary" },
+    { "name": "product-low-stock", "path": "/product?slug=drift-hammock", "accounts": ["guest"], "waitFor": "Only 3 left" },
+    { "name": "account", "path": "/account", "accounts": ["ari"], "waitFor": "Your orders" },
+    { "name": "seeded-order", "path": "/order?id=1001", "accounts": ["shopper"], "waitFor": "Payment" },
+    { "name": "admin-products", "path": "/admin#products", "accounts": ["admin"], "waitFor": "Products" }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:19:23.788Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap button \"Add Ember Stove to cart\" in \"Add\"",
+        "target": {
+          "role": "button",
+          "name": "Add Ember Stove to cart",
+          "text": "Add",
+          "within": "Add"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/checkout/checkout.shopper.e2e.ts::Checkout::Verify%20that%20a%20shopper%20can%20buy%20a%20stove%20with%20agent-driven%20steps%20and%20exact%20checks",
+      "targetId": "chromium",
+      "instructionDigest": "9d6296defc44b1fa5958d660f9c2f63a0fda1c5fdce4c4faac29ca877dfed6c4",
+      "paramsDigest": "763bdaf008d326d19dd9bd791b4b9d1ad4ba9b818cb81b0cd1a37e02491723f5",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Clicked the quick \"Add\" button for Ember Stove ($69.00) on the home page. The button now reads \"Added\", a status says \"Added to your cart.\", and the header cart shows \"Cart, 1 item\".",
+    "startPath": "/",
+    "endPath": "/",
+    "endAnchors": [
+      {
+        "role": "status",
+        "name": "Added to your cart. View cart"
+      },
+      {
+        "text": "Added to your cart."
+      },
+      {
+        "role": "link",
+        "name": "View cart"
+      },
+      {
+        "role": "link",
+        "name": "Cart, 1 item"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "link",
+        "name": "Cart, empty"
+      }
+    ],
+    "endWaitMs": 12931
+  }
+}

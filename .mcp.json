@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "e2e": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "node_modules/e2e/dist/cli/bin.js",
+        "mcp",
+        "--config",
+        "e2e.qa.config.ts",
+        "--max-sessions",
+        "8"
+      ]
+    }
+  }
+}

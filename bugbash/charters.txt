@@ -1,0 +1,8 @@
+# One e2e explore run per line: slug|session|persona|charter
+# Each charter has its own account, so explorers never report each other's orders.
+# Round 1 runs these with the personas below (eyes only). Round 2 runs the same charters as "auditor",
+# the skeptic with database tools. The explorers are never told which bugs are switched on.
+coupons|shopper|bargain-hunter|Starting at /shop, build baskets of one and of several products and try every coupon from the shop's rules on each; check the discount on the cart, at checkout and again on the order page after paying.
+cancel|jonas|regretful-buyer|Starting at /shop, buy one product that shows "Only N left", then cancel that order from Your orders; check the refund, the order status and whether the product's stock came back.
+payment|ari|skeptic|Starting at /shop, place one order under $75 and one over $75; check every amount on each order page, the payment line in particular, against the shop's price rules.
+admin|admin|store-admin|Starting at /admin, raise the price of a product that appears in past orders, then open those past orders and the order list and check they still show what the customers paid.

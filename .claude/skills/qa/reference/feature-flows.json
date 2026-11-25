@@ -1,0 +1,75 @@
+{
+  "_about": "Flow inventory: the user journeys worth testing in each feature, which /qa coverage measures automation against. Key = catalog slug. level: e2e (this suite) | db (a business rule the HALDEN_DB_RULES oracle checks after every test) | api (test lower) | manual. A test covers a flow when it carries the tag flow:<ID>; a testplan.md case covers it when its Flow column names the ID and its status is Automated. IDs are stable for life; new flows take the next number. Built 2026-11-25 from the shop's documented rules (agents/personas.ts SHOP_CONTEXT, utils/shop-data.ts) and the existing suite. Change it only after the user confirms.",
+  "features": {
+    "catalog": {
+      "flows": [
+        { "id": "CAT-F01", "name": "Guest finds a product by browsing a category and opens its page", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT header categories" },
+        { "id": "CAT-F02", "name": "A sold-out product shows Sold out and cannot be added to the cart", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT stock notes" },
+        { "id": "CAT-F03", "name": "A product with 5 or fewer in stock says Only N left", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT stock notes" },
+        { "id": "CAT-F04", "name": "Quick Add on a product card adds one to the cart", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT product cards" },
+        { "id": "CAT-F05", "name": "Adding more than the stock on hand is refused", "priority": "P0", "roles": ["guest"], "level": "e2e", "note": "quantity stepper above stock; expected message needs a source", "source": "rule: stock held never exceeds stock on hand" }
+      ]
+    },
+    "cart": {
+      "flows": [
+        { "id": "CART-F01", "name": "A small cart pays $7.95 shipping and 8% tax", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT prices" },
+        { "id": "CART-F02", "name": "A cart of $75 or more ships free", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT prices" },
+        { "id": "CART-F03", "name": "Quantities multiply the line into the subtotal", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT cart stepper" },
+        { "id": "CART-F04", "name": "Removing an item updates every total", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT cart Remove" },
+        { "id": "CART-F05", "name": "A discount that takes the order under $75 brings shipping back", "priority": "P0", "roles": ["guest"], "level": "e2e", "note": "free shipping is judged after the discount", "source": "SHOP_CONTEXT prices" },
+        { "id": "CART-F06", "name": "The cart survives a reload and a sign-in", "priority": "P1", "roles": ["guest", "shopper"], "level": "e2e", "source": "error guessing" }
+      ]
+    },
+    "coupons": {
+      "flows": [
+        { "id": "CPN-F01", "name": "WELCOME10 takes 10% off a cart of several products, once", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F02", "name": "SAVE20 takes $20 off an order over $150", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F03", "name": "SAVE20 is refused below its $150 minimum", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F04", "name": "A used-up code (TRAILHEAD15) is refused", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F05", "name": "An expired code (SPRING5) is refused", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F06", "name": "A switched-off code (STAFF50) is refused", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F07", "name": "An unknown code is refused", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT coupons" },
+        { "id": "CPN-F08", "name": "Removing an applied code restores the totals", "priority": "P1", "roles": ["guest"], "level": "e2e", "source": "SHOP_CONTEXT cart summary Remove" },
+        { "id": "CPN-F09", "name": "An order keeps the discount it was priced with", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT order page" },
+        { "id": "CPN-F10", "name": "A coupon is never used more often than allowed", "priority": "P0", "roles": ["shopper"], "level": "db", "source": "qa/rules.sql" }
+      ]
+    },
+    "checkout": {
+      "flows": [
+        { "id": "CHK-F01", "name": "A shopper pays and the card is charged the full total, shipping included", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT order page payment line" },
+        { "id": "CHK-F02", "name": "A declined card places no order", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT test cards" },
+        { "id": "CHK-F03", "name": "Checkout refuses a missing shipping field", "priority": "P1", "roles": ["shopper"], "level": "e2e", "note": "messages need a [code] source", "source": "SHOP_CONTEXT checkout form" },
+        { "id": "CHK-F04", "name": "A first-time visitor creates an account during checkout and buys", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "journey" },
+        { "id": "CHK-F05", "name": "Paying twice (double click, back and pay again) places one order", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "error guessing; escape E-14" },
+        { "id": "CHK-F06", "name": "The card is authorized for exactly what the order leaves to pay", "priority": "P0", "roles": ["shopper"], "level": "db", "source": "qa/rules.sql" }
+      ]
+    },
+    "orders": {
+      "flows": [
+        { "id": "ORD-F01", "name": "Cancelling a paid order refunds it in full", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT cancel" },
+        { "id": "ORD-F02", "name": "Cancelling an order puts its items back in stock", "priority": "P0", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT cancel" },
+        { "id": "ORD-F03", "name": "A new order is listed in Your orders with its total and status", "priority": "P1", "roles": ["shopper"], "level": "e2e", "source": "SHOP_CONTEXT order page" },
+        { "id": "ORD-F04", "name": "A shopper cannot open another shopper's order", "priority": "P0", "roles": ["shopper"], "level": "e2e", "note": "Maya's seeded order 1001 opened by Jonas", "source": "escape E-22" },
+        { "id": "ORD-F05", "name": "A delivered order offers no Cancel order", "priority": "P1", "roles": ["shopper"], "level": "e2e", "note": "seeded order 1001 is Delivered", "source": "SHOP_CONTEXT: a paid order has Cancel order" }
+      ]
+    },
+    "account": {
+      "flows": [
+        { "id": "ACCT-F01", "name": "A shopper signs in and is greeted by first name", "priority": "P0", "roles": ["shopper"], "level": "e2e", "note": "the setup tests sign in by API, so the form itself is untested", "source": "auth.setup" },
+        { "id": "ACCT-F02", "name": "A wrong password is refused without saying which part was wrong", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "error guessing" },
+        { "id": "ACCT-F03", "name": "A visitor creates an account", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "journey" },
+        { "id": "ACCT-F04", "name": "Signing out ends the session (Your account asks to sign in again)", "priority": "P1", "roles": ["shopper"], "level": "e2e", "source": "error guessing" },
+        { "id": "ACCT-F05", "name": "Your account needs a signed-in user", "priority": "P0", "roles": ["guest"], "level": "e2e", "source": "permission gate" }
+      ]
+    },
+    "admin": {
+      "flows": [
+        { "id": "ADM-F01", "name": "Changing a price leaves past orders at the price they were sold for", "priority": "P0", "roles": ["admin"], "level": "e2e", "source": "SHOP_CONTEXT admin; store-admin persona" },
+        { "id": "ADM-F02", "name": "A stock edit shows on the product page", "priority": "P1", "roles": ["admin"], "level": "e2e", "source": "SHOP_CONTEXT admin inline stock" },
+        { "id": "ADM-F03", "name": "A shopper and a guest cannot open the admin", "priority": "P0", "roles": ["shopper", "guest"], "level": "e2e", "source": "permission gate" },
+        { "id": "ADM-F04", "name": "A coupon switched off in the admin is refused at the cart", "priority": "P1", "roles": ["admin", "guest"], "level": "e2e", "source": "SHOP_CONTEXT admin coupons" },
+        { "id": "ADM-F05", "name": "The QA lab switches a planted bug on and off", "priority": "P2", "roles": ["admin"], "level": "e2e", "source": "SHOP_CONTEXT QA lab" }
+      ]
+    }
+  }
+}

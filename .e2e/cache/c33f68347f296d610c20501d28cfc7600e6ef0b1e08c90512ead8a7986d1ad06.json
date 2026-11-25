@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:14:12.105Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap link \"Shelter\" (1 of 2)",
+        "target": {
+          "role": "link",
+          "name": "Shelter",
+          "position": {
+            "index": 0,
+            "of": 2
+          }
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap link \"Ridgeline 2P Tent\" in \"Add\"",
+        "target": {
+          "role": "link",
+          "name": "Ridgeline 2P Tent",
+          "within": "Add"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/catalog/catalog.guest.e2e.ts::Catalogue::Verify%20that%20a%20guest%20can%20find%20a%20tent%20by%20browsing%20the%20Shelter%20category",
+      "targetId": "chromium",
+      "instructionDigest": "1d01f2a7b15a9b05d6e70879980dc1535a8747d9f5a49fad5318b40dc76e7771",
+      "paramsDigest": "000ef501b016210cef6d6d96ca283a5452c0212a8d32f61da36bf0fb2585e897",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Opened the Shelter category from the header, which showed 4 products, then opened the Ridgeline 2P Tent product page. It shows the $349.00 price, \"In stock\", the quantity stepper at 1, and the \"Add to cart\" button.",
+    "startPath": "/",
+    "endPath": "/product?slug=ridgeline-2p-tent",
+    "endAnchors": [
+      {
+        "role": "link",
+        "name": "Home"
+      },
+      {
+        "text": "Ridgeline 2P Tent"
+      },
+      {
+        "role": "image",
+        "name": "Ridgeline 2P Tent"
+      },
+      {
+        "role": "heading",
+        "name": "Ridgeline 2P Tent"
+      },
+      {
+        "text": "A freestanding two-person tent that pitches in four minutes."
+      },
+      {
+        "text": "In stock"
+      },
+      {
+        "role": "button",
+        "name": "One fewer"
+      },
+      {
+        "role": "button",
+        "name": "One more"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "heading",
+        "name": "Gear for nights under open sky."
+      },
+      {
+        "text": "Tents, sleeping bags and camp kitchens chosen for long trips. Free shipping on orders over $75."
+      },
+      {
+        "role": "link",
+        "name": "Shop all gear"
+      },
+      {
+        "role": "link",
+        "name": "Browse shelter"
+      },
+      {
+        "role": "image",
+        "name": "A small tent pitched on a ridge at dusk"
+      },
+      {
+        "role": "heading",
+        "name": "Shop by trip"
+      },
+      {
+        "role": "link",
+        "name": "All products"
+      },
+      {
+        "text": "4 products"
+      }
+    ],
+    "endWaitMs": 12491
+  }
+}

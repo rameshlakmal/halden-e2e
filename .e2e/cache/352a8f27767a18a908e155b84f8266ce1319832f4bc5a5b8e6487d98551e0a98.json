@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:20:40.230Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap link \"Cart, 2 items\"",
+        "target": {
+          "role": "link",
+          "name": "Cart, 2 items"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap link \"Check out\"",
+        "target": {
+          "role": "link",
+          "name": "Check out"
+        }
+      },
+      {
+        "name": "tap",
+        "summary": "tap tab \"Create account\"",
+        "target": {
+          "role": "tab",
+          "name": "Create account"
+        }
+      },
+      {
+        "name": "type",
+        "summary": "type \"{{param:/email}}\" into textbox \"Email\"",
+        "target": {
+          "role": "textbox",
+          "name": "Email"
+        },
+        "value": "{{param:/email}}"
+      },
+      {
+        "name": "type",
+        "summary": "type \"Maya Okafor\" into textbox \"Name\"",
+        "target": {
+          "role": "textbox",
+          "name": "Name"
+        },
+        "value": "Maya Okafor"
+      },
+      {
+        "name": "typeSecret",
+        "summary": "fill secret \"new-customer-password\" into textbox \"Password\"",
+        "target": {
+          "role": "textbox",
+          "name": "Password",
+          "inputPurpose": "password"
+        },
+        "secret": "new-customer-password"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Create account\"",
+        "target": {
+          "role": "button",
+          "name": "Create account"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/journeys/first-purchase.guest.e2e.ts::First%20purchase::Verify%20that%20a%20first-time%20visitor%20can%20sign%20up%20and%20buy%20a%20headlamp%20and%20a%20mug",
+      "targetId": "chromium",
+      "instructionDigest": "2e9c81eaa20b8064b851578cbfcba63b4fd3b4fbb07a3e50a3d2ea6aaf1bb190",
+      "paramsDigest": "d6e435f6128d05bbfef3fd977acf3e929f5e6422f55d92391671cb319c32b91c",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "From the cart, Check out led to the sign-in page; I switched to Create account, entered name Maya Okafor, email first-1791494401739@halden.test and the password, and submitted. The account was created and the app redirected to /checkout, header shows \"Your account (Maya Okafor)\", and the checkout p…",
+    "startPath": "/shop",
+    "endPath": "/checkout",
+    "endAnchors": [
+      {
+        "role": "link",
+        "name": "Your account (Maya Okafor)"
+      },
+      {
+        "text": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Shipping address"
+      },
+      {
+        "text": "Full name"
+      },
+      {
+        "role": "textbox",
+        "name": "Full name",
+        "value": "Maya Okafor"
+      },
+      {
+        "text": "Address"
+      },
+      {
+        "role": "textbox",
+        "name": "Address"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "link",
+        "name": "Your account"
+      },
+      {
+        "role": "link",
+        "name": "Home"
+      },
+      {
+        "text": "Shop"
+      },
+      {
+        "role": "heading",
+        "name": "Shop all gear"
+      },
+      {
+        "text": "Everything we carry, tested on long trips."
+      },
+      {
+        "role": "button",
+        "name": "All",
+        "states": [
+          "pressed"
+        ]
+      },
+      {
+        "role": "button",
+        "name": "Shelter"
+      },
+      {
+        "role": "button",
+        "name": "Sleep"
+      }
+    ],
+    "endWaitMs": 13407
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:23:32.477Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap textbox \"Address\"",
+        "target": {
+          "role": "textbox",
+          "name": "Address"
+        }
+      },
+      {
+        "name": "type",
+        "summary": "type \"14 Larch Street\" into textbox \"Address\"",
+        "target": {
+          "role": "textbox",
+          "name": "Address"
+        },
+        "value": "14 Larch Street"
+      },
+      {
+        "name": "type",
+        "summary": "type \"Portland\" into textbox \"City\"",
+        "target": {
+          "role": "textbox",
+          "name": "City"
+        },
+        "value": "Portland"
+      },
+      {
+        "name": "type",
+        "summary": "type \"97205\" into textbox \"Postcode\"",
+        "target": {
+          "role": "textbox",
+          "name": "Postcode"
+        },
+        "value": "97205"
+      },
+      {
+        "name": "select",
+        "summary": "select \"United States\" in combobox \"Country\"",
+        "target": {
+          "role": "combobox",
+          "name": "Country"
+        },
+        "value": "United States"
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/checkout/checkout.shopper.e2e.ts::Checkout::Verify%20that%20a%20shopper%20can%20buy%20a%20stove%20with%20agent-driven%20steps%20and%20exact%20checks",
+      "targetId": "chromium",
+      "instructionDigest": "8a64a0cf608ba00f0c6583200e451204078abf2219c41305c30749d3425b7980",
+      "paramsDigest": "52b4395cd6b35338bd428f3a01fae012d90e923565066d4ed5aa114593446ffe",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Filled the shipping address on /checkout: Address \"14 Larch Street\", City \"Portland\", Postcode \"97205\", Country \"United States\" (already selected). Full name remained prefilled as \"Maya Okafor\". The Card number field was left empty for the next step.",
+    "startPath": "/checkout",
+    "endPath": "/checkout",
+    "endAnchors": [
+      {
+        "role": "textbox",
+        "name": "Address",
+        "value": "14 Larch Street"
+      },
+      {
+        "role": "textbox",
+        "name": "City",
+        "value": "Portland"
+      },
+      {
+        "role": "textbox",
+        "name": "Postcode",
+        "value": "97205"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "role": "textbox",
+        "name": "Address"
+      },
+      {
+        "role": "textbox",
+        "name": "City"
+      },
+      {
+        "role": "textbox",
+        "name": "Postcode"
+      }
+    ],
+    "endWaitMs": 14295
+  }
+}

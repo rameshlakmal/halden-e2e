@@ -1,0 +1,134 @@
+{
+  "healthy": {
+    "ui": {
+      "caughtBy": [],
+      "expectedBy": [],
+      "seconds": 101,
+      "tests": 21
+    },
+    "ui+db": {
+      "caughtBy": [],
+      "expectedBy": [],
+      "seconds": 73,
+      "tests": 21
+    }
+  },
+  "coupon_twice": {
+    "ui": {
+      "caughtBy": [
+        "Verify that WELCOME10 takes 10% off a cart of several products, once",
+        "Verify that a coupon order keeps the discount it was priced with"
+      ],
+      "expectedBy": [
+        "Verify that WELCOME10 takes 10% off a cart of several products, once",
+        "Verify that a coupon order keeps the discount it was priced with"
+      ],
+      "seconds": 98,
+      "tests": 20
+    },
+    "ui+db": {
+      "caughtBy": [
+        "Verify that WELCOME10 takes 10% off a cart of several products, once",
+        "Verify that a coupon order keeps the discount it was priced with"
+      ],
+      "expectedBy": [
+        "Verify that WELCOME10 takes 10% off a cart of several products, once",
+        "Verify that a coupon order keeps the discount it was priced with"
+      ],
+      "seconds": 88,
+      "tests": 20
+    }
+  },
+  "cancel_keeps_stock": {
+    "ui": {
+      "caughtBy": [
+        "Verify that cancelling an order puts its items back in stock"
+      ],
+      "expectedBy": [
+        "Verify that cancelling an order puts its items back in stock"
+      ],
+      "seconds": 76,
+      "tests": 20
+    },
+    "ui+db": {
+      "caughtBy": [
+        "Verify that cancelling a paid order refunds it in full",
+        "Verify that cancelling an order puts its items back in stock"
+      ],
+      "expectedBy": [
+        "Verify that cancelling an order puts its items back in stock"
+      ],
+      "seconds": 88,
+      "tests": 20
+    }
+  },
+  "payment_misses_shipping": {
+    "ui": {
+      "caughtBy": [
+        "Verify that a small order is charged its full total, shipping included",
+        "Verify that cancelling a paid order refunds it in full"
+      ],
+      "expectedBy": [
+        "Verify that a small order is charged its full total, shipping included"
+      ],
+      "seconds": 83,
+      "tests": 20
+    },
+    "ui+db": {
+      "caughtBy": [
+        "Verify that a small order is charged its full total, shipping included",
+        "Verify that cancelling a paid order refunds it in full",
+        "Verify that cancelling an order puts its items back in stock"
+      ],
+      "expectedBy": [
+        "Verify that a small order is charged its full total, shipping included"
+      ],
+      "seconds": 88,
+      "tests": 20
+    }
+  },
+  "price_edit_rewrites_orders": {
+    "ui": {
+      "caughtBy": [
+        "Verify that changing a price leaves past orders at the price they were sold for"
+      ],
+      "expectedBy": [
+        "Verify that changing a price leaves past orders at the price they were sold for"
+      ],
+      "seconds": 79,
+      "tests": 20
+    },
+    "ui+db": {
+      "caughtBy": [
+        "Verify that changing a price leaves past orders at the price they were sold for"
+      ],
+      "expectedBy": [
+        "Verify that changing a price leaves past orders at the price they were sold for"
+      ],
+      "seconds": 79,
+      "tests": 20
+    }
+  },
+  "coupon_limit_ignored": {
+    "ui": {
+      "caughtBy": [
+        "Verify that a used up code (TRAILHEAD15) is refused"
+      ],
+      "expectedBy": [
+        "Verify that a used up code (TRAILHEAD15) is refused"
+      ],
+      "seconds": 82,
+      "tests": 20
+    },
+    "ui+db": {
+      "caughtBy": [
+        "Verify that a used up code (TRAILHEAD15) is refused"
+      ],
+      "expectedBy": [
+        "Verify that a used up code (TRAILHEAD15) is refused"
+      ],
+      "seconds": 78,
+      "tests": 20
+    }
+  }
+}

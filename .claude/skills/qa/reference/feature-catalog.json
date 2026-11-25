@@ -1,0 +1,12 @@
+{
+  "_about": "Every Halden Outfitters feature the /qa workflow knows, for backfill, status and coverage. slug names tests/<slug>/ and .evidence/<slug>/. prefix is the case-ID and flow-ID prefix (CPN-012, CPN-F03). routes are the shop's URLs; codeHints are words to search for in the shop repo ($HALDEN_SHOP_DIR, read-only), not paths, because spec-builder confirms the real files. tests are the existing spec files. Edit only after the user confirms a new or renamed feature.",
+  "features": [
+    { "slug": "catalog", "name": "Catalogue and product pages", "prefix": "CAT", "routes": ["/", "/shop", "/product?slug=<slug>"], "roles": ["guest", "shopper"], "tests": ["tests/catalog/catalog.guest.e2e.ts"], "codeHints": ["product", "category", "stock", "Sold out", "Only N left"] },
+    { "slug": "cart", "name": "Cart and order summary", "prefix": "CART", "routes": ["/cart"], "roles": ["guest", "shopper"], "tests": ["tests/cart/cart.guest.e2e.ts"], "codeHints": ["cart", "shipping", "tax", "free shipping", "Order summary"] },
+    { "slug": "coupons", "name": "Discount codes", "prefix": "CPN", "routes": ["/cart", "/admin#coupons"], "roles": ["guest", "shopper", "admin"], "tests": ["tests/coupons/coupons.guest.e2e.ts"], "codeHints": ["coupon", "discount", "WELCOME10", "SAVE20", "usage limit", "expired"] },
+    { "slug": "checkout", "name": "Checkout and payment", "prefix": "CHK", "routes": ["/checkout", "/order?id=<id>"], "roles": ["guest", "shopper"], "tests": ["tests/checkout/checkout.shopper.e2e.ts", "tests/journeys/first-purchase.guest.e2e.ts"], "codeHints": ["checkout", "payment", "card", "declined", "authorize"] },
+    { "slug": "orders", "name": "Orders and cancellation", "prefix": "ORD", "routes": ["/account", "/order?id=<id>"], "roles": ["shopper", "admin"], "tests": ["tests/orders/orders.shopper.e2e.ts"], "codeHints": ["order", "cancel", "refund", "status", "stock movement"] },
+    { "slug": "account", "name": "Sign up, sign in and Your account", "prefix": "ACCT", "routes": ["/account", "/sign-in", "/register"], "roles": ["guest", "shopper"], "tests": [], "codeHints": ["login", "register", "session", "Your orders", "Hello,"] },
+    { "slug": "admin", "name": "Staff admin (products, orders, coupons, QA lab)", "prefix": "ADM", "routes": ["/admin", "/admin#products", "/admin#orders/<id>", "/admin#coupons", "/admin#qa"], "roles": ["admin", "shopper", "guest"], "tests": ["tests/admin/admin.admin.e2e.ts"], "codeHints": ["admin", "price", "stock", "QA lab", "qa_bugs", "requireStaff"] }
+  ]
+}

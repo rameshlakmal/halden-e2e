@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "trace-1",
+  "createdAt": "2026-10-08T21:23:56.826Z",
+  "payload": {
+    "actions": [
+      {
+        "name": "tap",
+        "summary": "tap textbox \"Address\"",
+        "target": {
+          "role": "textbox",
+          "name": "Address"
+        }
+      },
+      {
+        "name": "type",
+        "summary": "type \"14 Larch Street\" into textbox \"Address\"",
+        "target": {
+          "role": "textbox",
+          "name": "Address"
+        },
+        "value": "14 Larch Street"
+      },
+      {
+        "name": "type",
+        "summary": "type \"Portland\" into textbox \"City\"",
+        "target": {
+          "role": "textbox",
+          "name": "City"
+        },
+        "value": "Portland"
+      },
+      {
+        "name": "type",
+        "summary": "type \"97205\" into textbox \"Postcode\"",
+        "target": {
+          "role": "textbox",
+          "name": "Postcode"
+        },
+        "value": "97205"
+      },
+      {
+        "name": "type",
+        "summary": "type \"4242 4242 4242 4242\" into textbox \"Card number\"",
+        "target": {
+          "role": "textbox",
+          "name": "Card number",
+          "placeholder": "4242 4242 4242 4242"
+        },
+        "value": "4242 4242 4242 4242"
+      },
+      {
+        "name": "tap",
+        "summary": "tap button \"Pay $86.79\"",
+        "target": {
+          "role": "button",
+          "name": "Pay $86.79"
+        }
+      }
+    ],
+    "executor": {
+      "name": "e2e-default-agent",
+      "version": "2"
+    },
+    "recordedFor": {
+      "testId": "tests/journeys/first-purchase.guest.e2e.ts::First%20purchase::Verify%20that%20a%20first-time%20visitor%20can%20sign%20up%20and%20buy%20a%20headlamp%20and%20a%20mug",
+      "targetId": "chromium",
+      "instructionDigest": "a5e85e9ba779dfee3421f37981343baefd6ce05370d8f8d45cc8d0d807bc4d8c",
+      "paramsDigest": "d307ac24cb3dc04208e71f9060e526ed43785d2360cae01bba7dddc3df270d27",
+      "callIndex": 0,
+      "agent": "default"
+    },
+    "summary": "Filled shipping address (14 Larch Street, Portland 97205, United States) and card 4242 4242 4242 4242, then paid $86.79. Order #1007 shows status Paid, \"Charged $86.79 to the card ending 4242\", and shipping to Maya Okafor.",
+    "startPath": "/checkout",
+    "endPath": "/order?id=1007&placed=1",
+    "endAnchors": [
+      {
+        "role": "link",
+        "name": "Cart, empty"
+      },
+      {
+        "text": "Thank you, your order is placed."
+      },
+      {
+        "text": "#1007"
+      },
+      {
+        "text": "Paid"
+      },
+      {
+        "role": "button",
+        "name": "Cancel order"
+      },
+      {
+        "role": "link",
+        "name": "Insulated Mug"
+      },
+      {
+        "text": "1 × $28.00"
+      },
+      {
+        "role": "link",
+        "name": "Headlamp 400"
+      }
+    ],
+    "goneAnchors": [
+      {
+        "text": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Checkout"
+      },
+      {
+        "role": "heading",
+        "name": "Shipping address"
+      },
+      {
+        "text": "Full name"
+      },
+      {
+        "role": "textbox",
+        "name": "Full name",
+        "value": "Maya Okafor"
+      },
+      {
+        "text": "Address"
+      },
+      {
+        "role": "textbox",
+        "name": "Address"
+      },
+      {
+        "text": "City"
+      }
+    ],
+    "endWaitMs": 12436
+  }
+}

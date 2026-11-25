@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# e2e output. The replay cache (.e2e/cache/) is committed on purpose:
+# CI replays verified agent steps from it without calling the model.
+.e2e/*
+!.e2e/cache/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local settings
+.claude/settings.local.json
+
+# QA run evidence (screenshots, reports, sweeps): local only
+.evidence/
